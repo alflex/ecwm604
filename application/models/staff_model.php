@@ -42,12 +42,27 @@ class Staff_model extends CI_Model{
 		
 		
 	}
+	function update($emp_no,$salary){
+		
+		$data = array(
+		'emp_no' => $emp_no,
+		'salary' => $salary
+		);
+		
+		$this->db->where('emp_no', $emp_no);
+        $this->db->update('salaries', $data);
+		
+		
+		
+	}
 	
 	function delete($emp_no){
 		
 		$this->db->set('emp_no', $emp_no);
 		$this->db->delete('employees', array('emp_no' => $emp_no));
 	}
+	
+	
 	
 	
 }

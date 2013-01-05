@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Update employees</title>
+	<title>success</title>
 
 </head>
 <body>

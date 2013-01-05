@@ -79,6 +79,24 @@ class Staff extends CI_Controller {
 
 	}
 
+    function update(){
+    	$this->load->view('update_employees');
+		
+	}
 	
+	function updateEmployees(){
+		
+		
+		$emp_no = $this->input->post('emp_no');
+		$salary = $this->input->post('salary');
+		//$title = $this->input->post('title');
+		$this->load->model('staff_model');
+		$this->staff_model->update($emp_no,$salary);
+		$this->load->view('view name');
+		
+		
+		
+		
+	}
 	}
 	
