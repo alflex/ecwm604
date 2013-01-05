@@ -6,5 +6,5 @@
 *.out
 
 ## File system
-config.php
-database.php
+/application/config/config.php
+/application/config/database.php
