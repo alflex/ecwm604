@@ -65,7 +65,7 @@ class Staff extends CI_Controller {
 	
 	$this->load->model('staff_model');
 	$this->staff_model->insert1($emp_no,$birth_date,$first_name,$last_name,$gender,$hire_date);
-
+	$this->load->view('success');
 	}
 	
     function delete(){
@@ -79,7 +79,7 @@ class Staff extends CI_Controller {
 		
 	$this->load->model('staff_model');
 	$this->staff_model->delete($emp_no);
-
+$this->load->view('success');
 	}
 
     function update(){
@@ -128,7 +128,7 @@ class Staff extends CI_Controller {
 
 		
 		$this->load->model('staff_model');
-		$this->staff_model->managerPromotion($emp_no, $dept_no);
+		$this->staff_model->managerPromotion($dept_no, $emp_no);
 		$this->load->view('promoted_manager'); 
 		
 	}
@@ -142,12 +142,27 @@ class Staff extends CI_Controller {
 	function demotion(){
 		
 		$emp_no = $this->input->post('emp_no');
-		$dept_no = $this->input->post('dept_no');
-		
+				
 		
 		$this->load->model('staff_model');
-		$this->staff_model->managerdemotion($emp_no, $dept_no);
+		$this->staff_model->managerdemotion($emp_no);
 		$this->load->view('employee_demoted');
+		
+	}
+	
+	function movedepartment(){
+		$this ->load->view('moving_department');
+		
+	}
+	
+	function changedepartment(){
+		
+		$emp_no =$this->input->post('emp_no');
+		$dept_no =$this->input->post('dept_no');
+		
+		$this->load->model('staff_model');
+		$this->staff_model->moveDepartment($emp_no,$dept_no);
+		$this->load->view('department_changed');
 		
 	}
 	

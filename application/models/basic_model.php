@@ -7,7 +7,7 @@ class basic_model extends CI_Model{
 		$this->load->database();
 	}
 
-	function searchEmployee($emp_no,$last_name,$title,$dept_no,$limit){
+	function findemp($emp_no,$last_name,$title,$dept_no,$limit){
 
 		$this->db->select('*');
 		$this->db->from('employees');

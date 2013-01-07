@@ -28,7 +28,7 @@ class Login_model extends CI_Model{
 		);
 		
 		$this->session->set_userdata($data);
-		redirect('Staff/searchEmployee');
+		redirect('staff/searchEmployee');
 	}
 	
 	return false;

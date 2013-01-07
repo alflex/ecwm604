@@ -63,7 +63,7 @@ ul#list-nav li a:hover {
 <li><a href="jobChange">Update Job Title</a></li>
 
 <li><a href="update">Update Salary</a></li>
-<li><a href="about.asp">Move</a></li>
+<li><a href="moving_department">Move</a></li>
 </ul>
 		</center>	
 		

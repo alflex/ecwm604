@@ -104,7 +104,7 @@ class Staff_model extends CI_Model{
 		
 	}
 
-    function managerPromotion($emp_no,$dept_no){
+    function managerPromotion($dept_no,$emp_no){
 		
 		$today = date('Y-m-d');
 		
@@ -119,44 +119,26 @@ class Staff_model extends CI_Model{
 		
 	}
 	
-	function managerdemotion($emp_no,$dept_no)
-	{
+	function managerdemotion($emp_no){
+	
 		
-		$today = date('Y-m-d');
+		$this->db->set('emp_no', $emp_no);
+		$this->db->delete('employees', array('emp_no' => $emp_no));
 		
-		$q = $this->db->where('emp_no' , $emp_no)
-					->where('to_date', '9999-01-01')
-		->from('dept_manager');
-		
-		$row = $q->get()->result();
-		
-		 foreach($row as $arow)
-		 {
-				$emp_no = $arow->emp_no;
-				$dept_no = $arow->dept_no;
-				$from_date = $arow->from_date;
-				$to_date = $arow->to_date;
 				
 		 }
 		
-		
-		 $data = array(
-		 'dept_no' => $dept_no,
+		function moveDepartment($emp_no,$dept_no){
+			
+		$data = array(
 		'emp_no' => $emp_no,
-		'from_date' => $from_date ,
-		'to_date' => $today);
-	    
-		$this->db->where('emp_no' , $emp_no)
-					->where('to_date', '9999-01-01')
-		->from('dept_manager AS m')
-		;
-		//->join('department d', 'd.dept_no = m.dept_no')
-		$this->db->update('dept_manager', $data);
-		
-		
-	
-	
-	}
+		'dept_no' => $dept_no
+		);	
+			
+		$this->db->where('emp_no', $emp_no);
+        $this->db->update('dept_emp', $data);
+			
+		}
 	
 	function delete($emp_no){
 		

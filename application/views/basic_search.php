@@ -34,11 +34,13 @@
 <table class="table search">
 
 
-        
-  
+<a href="<?php echo base_url();?>index.php/login/">Back to Login</a>
 
+</br>
+</br>
+</br>
 
-<form class="form-horizontal" form action="searchEmployee" method="POST" >
+<form class="form-horizontal" form action="findemp" method="POST" >
 
 <div class="hero-unit">
 	
