@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en-UK">
 <head>
+	
+	
+			
+			<?php $this->load->view('header');?>
 </head>
 
 <style>
@@ -102,11 +106,11 @@
  
                         <th>First_name</th>
                         <th>Last_name</th>
-                 
+                        <th>Gender</th>
+                        <th>Hire_date</th>
                         <th>Dept_no</th>
                 		<th>Title</th>
-                
-
+						<th>Salary</th>
                 	
                         
                         
@@ -120,10 +124,12 @@
 
                         <td> <?php echo($employee->first_name); ?></td>
                         <td> <?php echo($employee->last_name); ?></td>
-                    
+                        <td> <?php echo($employee->gender); ?></td>
+                        <td> <?php echo($employee->hire_date); ?></td>
                         <td> <?php echo($employee->dept_no); ?></td>
                         <td> <?php echo($employee->title); ?></td>
- 				
+                           <td> <?php echo($employee->salary); ?></td>
+
                         
                         
                     </tr>   
@@ -136,7 +142,7 @@
 
                 
  <br/>     
-                
+                	<a id="logout" href='<?php echo site_url()."/login/do_logout"?>'>Logout</a>
 </body>
 </html>
 

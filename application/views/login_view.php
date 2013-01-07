@@ -6,6 +6,12 @@
 	</title>
 </head>
 <body>
+
+
+
+
+
+	
 <div id='login_form'>
 	<form action='<?php echo base_url();?>index.php/login/process' method='post' name='process'>
 		<h2>User Login</h2>
@@ -18,8 +24,11 @@
 		<input type='password' name='password' id='password' size='25' /><br/>
 		
 		<input type='Submit' value='Login' />
+		
+		
 		</form>
-		</div>              
+		</div>         
+
 </body>
 </html>
 

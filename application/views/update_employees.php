@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php $this->load->view('header');?>
 	<meta charset="utf-8">
 	<title>Update employees</title>
 
@@ -16,6 +17,12 @@
 	<input type="submit" value="Submit">
 	
 </form>
+
+</br>
+</br>
+</br>
+
+<a id="logout" href='<?php echo site_url()."/login/do_logout"?>'>Logout</a>
 
 
 </div>

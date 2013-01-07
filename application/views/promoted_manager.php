@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	
 	<?php $this->load->view('header');?>
 	<meta charset="utf-8">
-	<title>success</title>
+	<title>Promoted Manager</title>
 
 </head>
 <body>
-<label>success</label>
+<label>successfull Promotion to manamgment </label>
 </body>
 </html>  

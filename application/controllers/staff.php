@@ -26,25 +26,28 @@ class Staff extends CI_Controller {
 	
 	
 	
+	function searchEmployee(){
+
+		$limit =100;
+		$emp_no = $this->input->post('emp_no');
+		$last_name = $this->input->post('last_name');
+		$title =$this->input->post('title');
+		$dept_no =$this->input->post ('dept_no');
 		
-   public function search ($offset = 0){
-	
-	
+		$this->load->model('basic_model');
+		
+		if (empty($emp_no) && empty($last_name) && empty($title) && empty($dept_no)) {
+			$data = ('');
+		} else {
+		$data['query'] = $this->staff_model->searchEmployee($emp_no,$last_name,$title,$dept_no,$limit);
+		}
 
-	
-	$limit =20;		
-
-	$results = $this->staff_model->search($limit, $offset);
-	$data['staff'] = $results['rows'];
-	$data['num_results'] = $results['num_rows'];
+		$this->load->view('advanced_search', $data);
+	}
 	
 	
-	
-	
-	$this->load->view('welcome_message', $data);
-	
-   }
-	
+		
+   
 	
 	 function insert(){
 		
@@ -92,11 +95,61 @@ class Staff extends CI_Controller {
 		//$title = $this->input->post('title');
 		$this->load->model('staff_model');
 		$this->staff_model->update($emp_no,$salary);
-		$this->load->view('view name');
+		$this->load->view('update_success');
 		
-		
-		
+		}
+	
+	function jobChange(){
+		$this->load->view('change_job');
 		
 	}
+	
+	function updateJob(){
+	$title = $this->input->post('title');
+	$emp_no = $this->input->post('emp_no');
+	
+	$this->load->model('staff_model');
+		$this->staff_model->updateJob($emp_no,$title);
+		$this->load->view('update_jobtitle');
+		 
+	}
+	
+	function promoteToManager(){
+		$this->load->view('manager_promotion');
+		
+	}
+	
+	function promotion(){
+		
+		
+		
+		$emp_no = $this->input->post('emp_no');
+		$dept_no = $this->input->post('dept_no');
+
+		
+		$this->load->model('staff_model');
+		$this->staff_model->managerPromotion($emp_no, $dept_no);
+		$this->load->view('promoted_manager'); 
+		
+	}
+	
+	function demotionToEmployee(){
+		
+		$this->load->view('demotion_employee');
+		
+		}
+	
+	function demotion(){
+		
+		$emp_no = $this->input->post('emp_no');
+		$dept_no = $this->input->post('dept_no');
+		
+		
+		$this->load->model('staff_model');
+		$this->staff_model->managerdemotion($emp_no, $dept_no);
+		$this->load->view('employee_demoted');
+		
+	}
+	
 	}
 	

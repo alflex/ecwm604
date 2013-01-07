@@ -3,10 +3,10 @@
 <head>
 	<?php $this->load->view('header');?>
 	<meta charset="utf-8">
-	<title>success</title>
+	<title>Success Jobtitle</title>
 
 </head>
 <body>
-<label>success</label>
+<label>success jobtitle</label>
 </body>
 </html>  
